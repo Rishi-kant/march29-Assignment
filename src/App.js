@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { NavLink } from "react-router-dom";
+import "./App.css"
 
 function App() {
+
+  const data=[
+    {
+      path:"/",
+      name: "Home"
+    },
+    {
+      path:"/about",
+      name: "ABOUT"
+    },
+    {
+      path:"/login",
+      name: "LOGIN"
+    },
+    {
+      path:"/register",
+      name: "REGISTER"
+    }
+  ]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="header">
+     {
+      data.map((ele)=>{
+        return(
+          <div>
+          <NavLink to={ele.path}>
+              <h3 className="h3">{ele.name}</h3>
+          </NavLink>
+          </div>
+        )
+      })
+     }
     </div>
   );
 }
